@@ -3,8 +3,10 @@ const cors = require('cors');
 const app = express();
 const router = require('./router');
 
+//configuracion de cors para permitir servir los elementos estaticos desde server 3001
+
 app.use(cors({
-  origin: 'http://fundasoft-todo-app-josue.s3-website.us-east-2.amazonaws.com',
+  origin: 'http://localhost:3001'
 }));
 app.use(express.json());
 
@@ -17,6 +19,8 @@ app.use(function (err, req, res, next) { // middleware de error
 
 app.listen(3000, function() {
   console.log('¡La API está en funcionamiento!');
+  console.log('http://localhost:3001/todo.html');
+
 });
 
 // GET http://api.example.com/todos?user={user_id}
